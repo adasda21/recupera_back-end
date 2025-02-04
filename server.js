@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { EnrutadorCliente } from './routes/clientesRoutes.js';
 
 
-import { Cliente } from './models/Cliente.js';
+import { ClienteModel } from './models/Cliente_MDB.js';
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/api/clientes', EnrutadorCliente(Cliente));
+app.use('/api/clientes', EnrutadorCliente(ClienteModel));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
